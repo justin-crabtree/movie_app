@@ -10,3 +10,5 @@
 actor = Actor.new({first_name: "Benedict", last_name: "Cumberbatch", known_for: "Sherlock"})
 actor.save
 
+movie = Movie.new({title: "Fight Club", year: 1999, plot: "Don't talk about fight club"})
+movie.save
