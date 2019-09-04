@@ -1,0 +1,17 @@
+movies_json = []
+
+@movie.each do |movie|
+  movie_hash = {
+    id: movie.id, 
+    title: movie.title, 
+    year: movie.title, 
+    plot: movie.plot, 
+    director: movie.director, 
+    language: movie.language
+  }
+
+  movies_json << movie_hash
+
+end
+
+return movies_json

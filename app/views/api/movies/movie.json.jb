@@ -1,7 +1,10 @@
 {
-  movie: @movie
-  # id: @movie.id, 
-  # title: @movie.title, 
-  # year: @movie.title, 
-  # plot: @movie.plot
+  # movie: @movie
+  id: @movie.id, 
+  title: @movie.title, 
+  year: @movie.title, 
+  plot: @movie.plot, 
+  director: @movie.director, 
+  language: @movie.language
+  # in_english?: @movie.is_english?
 }

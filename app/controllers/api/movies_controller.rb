@@ -2,7 +2,7 @@ class Api::MoviesController < ApplicationController
 
   def index
     @movie = Movie.all
-    render "movie.json.jb"
+    render "index.json.jb"
   end
 
   def show
@@ -15,7 +15,9 @@ class Api::MoviesController < ApplicationController
       id: params[:id], 
       title: params[:title], 
       year: params[:year], 
-      plot: params[:plot]
+      plot: params[:plot],
+      director: params[:director],  
+      language: params[:language] 
       )
     render 'movie.json.jb'
   end
@@ -26,6 +28,8 @@ class Api::MoviesController < ApplicationController
     @movie.title = params[:title] || @movie.title
     @movie.year = params[:year] || @movie.year
     @movie.plot = params[:plot] || @movie.plot
+    @movie.director = params[:director] || @movie.director
+    @movie.language = params[:language] || @movie.language
     @movie.save
     render 'movie.json.jb'
   end
