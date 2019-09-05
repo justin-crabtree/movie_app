@@ -11,13 +11,19 @@ class Api::ActorsController < ApplicationController
   end
 
   def create
-    @actor = Actor.create(
+    @actor = Actor.new(
       id: params[:id], 
       first_name: params[:first_name], 
-      last_name: params[:last_name], 
+      last_name: params[:last_name],
+      age: params[:age], 
+      gender: params[:gender],  
       known_for: params[:known_for]
       )
-    render 'actor.json.jb'
+    if @actor.save
+      render 'actor.json.jb'
+    else 
+      render json: {errors: @actor.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -25,9 +31,14 @@ class Api::ActorsController < ApplicationController
 
     @actor.first_name = params[:first_name] || @actor.first_name
     @actor.last_name = params[:first_name] || @actor.last_name
+    @actor.age = params[:age] || @actor.age
+    @actor.gender = params[:gender] || @actor.gender
     @actor.known_for = params[:known_for] || @actor.known_for
-    @actor.save
-    render 'actor.json.jb'
+    if @actor.save
+      render 'actor.json.jb'
+    else 
+      render json: {errors: @actor.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def destroy

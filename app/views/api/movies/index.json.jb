@@ -4,10 +4,10 @@ movies_json = []
   movie_hash = {
     id: movie.id, 
     title: movie.title, 
-    year: movie.title, 
+    year: movie.year, 
     plot: movie.plot, 
     director: movie.director, 
-    language: movie.language
+    # language: movie.language
   }
 
   movies_json << movie_hash

@@ -11,15 +11,19 @@ class Api::MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.create(
+    @movie = Movie.new(
       id: params[:id], 
       title: params[:title], 
       year: params[:year], 
       plot: params[:plot],
       director: params[:director],  
-      language: params[:language] 
+      # language: params[:language] 
       )
-    render 'movie.json.jb'
+    if @movie.save
+      render 'movie.json.jb'
+    else 
+      render json: {errors: @movie.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -29,9 +33,12 @@ class Api::MoviesController < ApplicationController
     @movie.year = params[:year] || @movie.year
     @movie.plot = params[:plot] || @movie.plot
     @movie.director = params[:director] || @movie.director
-    @movie.language = params[:language] || @movie.language
-    @movie.save
-    render 'movie.json.jb'
+    # @movie.language = params[:language] || @movie.language
+    if @movie.save
+      render 'movie.json.jb'
+    else 
+      render json: {errors: @movie.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def destroy
