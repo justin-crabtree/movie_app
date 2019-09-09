@@ -5,6 +5,6 @@
   year: @movie.year, 
   plot: @movie.plot, 
   director: @movie.director, 
-  # language: @movie.language
+  english: @movie.english
   # in_english?: @movie.is_english?
 }

@@ -2,12 +2,12 @@ class Api::ActorsController < ApplicationController
 
   def show
     @actor = Actor.find_by(id: params[:id])
-    render 'actor.json.jb'
+    render 'show.json.jb'
   end
 
   def index
-    @actor = Actor.all
-    render 'actor.json.jb'
+    @actor = Actor.all.order(age: :desc)
+    render 'index.json.jb'
   end
 
   def create
@@ -20,7 +20,7 @@ class Api::ActorsController < ApplicationController
       known_for: params[:known_for]
       )
     if @actor.save
-      render 'actor.json.jb'
+      render 'show.json.jb'
     else 
       render json: {errors: @actor.errors.full_messages}, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class Api::ActorsController < ApplicationController
     @actor.gender = params[:gender] || @actor.gender
     @actor.known_for = params[:known_for] || @actor.known_for
     if @actor.save
-      render 'actor.json.jb'
+      render 'show.json.jb'
     else 
       render json: {errors: @actor.errors.full_messages}, status: :unprocessable_entity
     end
