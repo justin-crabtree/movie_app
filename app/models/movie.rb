@@ -11,4 +11,6 @@ class Movie < ApplicationRecord
   #   end
   # end
 
+  has_many :actors
+
 end

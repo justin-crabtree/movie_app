@@ -1,14 +1,14 @@
-# @actor.map do |actor|
-#   render partial: "actor.json.jb", locals: { actor: actor }
-# end
-
 @actor.map do |actor|
-  {
-    id: actor.id, 
-    first_name: actor.first_name, 
-    last_name: actor.last_name, 
-    age: actor.age, 
-    gender: actor.gender, 
-    known_for: actor.known_for
-  }
+  render partial: "actor.json.jb", locals: { actor: actor }
 end
+
+# @actor.map do |actor|
+#   {
+#     id: actor.id, 
+#     first_name: actor.first_name, 
+#     last_name: actor.last_name, 
+#     age: actor.age, 
+#     gender: actor.gender, 
+#     known_for: actor.known_for
+#   }
+# end
