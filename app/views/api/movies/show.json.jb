@@ -1,10 +1,1 @@
-{
-  # movie: @movie
-  id: @movie.id, 
-  title: @movie.title, 
-  year: @movie.year, 
-  plot: @movie.plot, 
-  director: @movie.director, 
-  english: @movie.english
-  # in_english?: @movie.is_english?
-}
+render partial: "movie.json.jb", locals: { movie: @movie }
