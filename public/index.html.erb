@@ -1,0 +1,9 @@
+<h1>All Actors</h1>
+<% @actors.each do |actor| %>
+  <h2><%= actor.first_name %></h2>
+  <h2><%= actor.last_name %></h2>
+  <h2>Age: <%= actor.age %></h2>
+  <h2>Gender: <%= actor.gender %></h2>
+  <h2>Known For: <%= actor.known_for %></h2>
+  <h2>Plot: <%= actor.movie.plot %></h2>
+<% end %>
